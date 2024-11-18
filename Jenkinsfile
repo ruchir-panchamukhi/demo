@@ -24,6 +24,7 @@ pipeline {
                 ]) {
                     bat """
                     aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 985539792387.dkr.ecr.ap-south-1.amazonaws.com
+                    docker build -t jenkins-demo .
                     docker tag jenkins-demo:latest 985539792387.dkr.ecr.ap-south-1.amazonaws.com/jenkins-demo:latest
                     docker push 985539792387.dkr.ecr.ap-south-1.amazonaws.com/jenkins-demo:latest
                     """
